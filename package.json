@@ -1,0 +1,27 @@
+{
+  "name": "create-react-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "contributors": [
+    {
+      "name": "Divesh Panwar",
+      "email": "divesh.panwar@gmail.com"
+    }
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "create-react-starter": "index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "inquirer": "^12.0.0",
+    "simple-git": "^3.27.0"
+  }
+}
