@@ -86,7 +86,7 @@ program
       if (useMUI) {
         insertLine();
         console.log(chalk.magenta(`Adding MUI to the project`, "\n"));
-        await addMuiToPackageJson(targetPath);
+        await addMuiToPackageJson(targetPath, useMUIIcon);
       }
       insertLine();
       console.log(chalk.green("Project setup is complete!", "\n"));
