@@ -1,6 +1,6 @@
 # React Starter
 
-This package helps in setting up the React project with TS.
+This package helps in generating the React project with TS.
 
 ## Usage
 

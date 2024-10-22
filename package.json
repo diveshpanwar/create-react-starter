@@ -18,7 +18,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "This project helps in generating a React project.",
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
