@@ -16,7 +16,7 @@ export async function addSassToPackageJson(targetDir) {
 
     // Write the updated package.json back
     await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
-    console.log(chalk.cyan("Added Sass to package.json"));
+    console.log(chalk.cyan("Added Sass to project"));
   } catch (err) {
     console.error(chalk.red(`Error updating package.json: ${err}`));
   }

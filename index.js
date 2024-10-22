@@ -1,16 +1,17 @@
 #!/usr/bin/env node
 
+import chalk from "chalk";
 import { program } from "commander";
 import fs from "fs-extra";
 import inquirer from "inquirer";
 import path from "path";
 import { fileURLToPath } from "url";
+import { addMuiToPackageJson } from "./utils/addMui.js";
 import {
   addSassToPackageJson,
   renameCssToScss,
   updateImportsToScss,
 } from "./utils/addSass.js";
-import chalk from "chalk";
 import { insertLine } from "./utils/common.js";
 
 // Resolve the equivalent of __dirname in ES module scope
@@ -44,9 +45,29 @@ program
         type: "confirm",
         name: "useSass",
         message: "Do you want to use Sass (with .scss files)?",
-        default: false,
+        default: true,
       },
     ]);
+
+    const { useMUI } = await inquirer.prompt([
+      {
+        type: "confirm",
+        name: "useMUI",
+        message: "Do you want to use React Material (mui)?",
+        default: true,
+      },
+    ]);
+
+    if (useMUI) {
+      const { useMUIIcon } = await inquirer.prompt([
+        {
+          type: "confirm",
+          name: "useMUIIcon",
+          message: "Do you want to use Material Icons?",
+          default: true,
+        },
+      ]);
+    }
 
     try {
       const targetPath = path.join(process.cwd(), projectName);
@@ -60,6 +81,12 @@ program
         await addSassToPackageJson(targetPath);
         await renameCssToScss(targetPath);
         await updateImportsToScss(targetPath);
+      }
+
+      if (useMUI) {
+        insertLine();
+        console.log(chalk.magenta(`Adding MUI to the project`, "\n"));
+        await addMuiToPackageJson(targetPath);
       }
       insertLine();
       console.log(chalk.green("Project setup is complete!", "\n"));
