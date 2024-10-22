@@ -16,7 +16,7 @@ This project supports following options:
 
 ## Contributions
 
-If you are willing to contribute then please reachout to me at [divesh.panwar@gmail.com](to://divesh.panwar@gmail.com)
+If you are willing to contribute then please reachout to me at [divesh.panwar@gmail.com](mailto:divesh.panwar@gmail.com)
 
 ## Issues
 
