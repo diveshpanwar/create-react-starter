@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 
-import inquirer from "inquirer";
 import { program } from "commander";
-import path from "path";
 import fs from "fs-extra";
+import inquirer from "inquirer";
+import path from "path";
 import { fileURLToPath } from "url";
 import {
   addSassToPackageJson,
   renameCssToScss,
   updateImportsToScss,
 } from "./utils/addSass.js";
+import chalk from "chalk";
+import { insertLine } from "./utils/common.js";
 
 // Resolve the equivalent of __dirname in ES module scope
 const __filename = fileURLToPath(import.meta.url);
@@ -48,18 +50,25 @@ program
 
     try {
       const targetPath = path.join(process.cwd(), projectName);
-      console.log(`Generating template ${targetPath}`);
+      console.log(chalk.yellow(`Generating template ${targetPath}`));
+      insertLine();
       await fs.copy(templateDir, targetPath);
+      console.log(chalk.green("Template generated successfully!"));
       if (useSass) {
+        insertLine();
+        console.log(chalk.magenta(`Adding Sass to the project`, "\n"));
         await addSassToPackageJson(targetPath);
         await renameCssToScss(targetPath);
         await updateImportsToScss(targetPath);
       }
-      console.log("Project setup is complete! Now run:");
-      console.log(`cd ${projectName} && npm install && npm run dev`);
+      insertLine();
+      console.log(chalk.green("Project setup is complete!", "\n"));
+      console.log(
+        chalk.cyan(`Please run command:`),
+        chalk.yellow(`'cd ${projectName} && npm install && npm run dev'`)
+      );
     } catch (error) {
-      console.log(error);
-      console.error("Failed to create the project:", error);
+      console.error(chalk.red("Failed to create the project:"), error);
     }
   });
 

@@ -1,5 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
+import chalk from "chalk";
 
 // Function to update package.json with Sass
 export async function addSassToPackageJson(targetDir) {
@@ -15,9 +16,9 @@ export async function addSassToPackageJson(targetDir) {
 
     // Write the updated package.json back
     await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
-    console.log("Added Sass to package.json");
+    console.log(chalk.cyan("Added Sass to package.json"));
   } catch (err) {
-    console.error(`Error updating package.json: ${err}`);
+    console.error(chalk.red(`Error updating package.json: ${err}`));
   }
 }
 
@@ -33,16 +34,16 @@ export async function renameCssToScss(targetDir) {
     // Rename index.css to index.scss
     if (await fs.pathExists(indexCssPath)) {
       await fs.rename(indexCssPath, indexScssPath);
-      console.log("Renamed index.css to index.scss");
+      console.log(chalk.cyan("Renamed index.css to index.scss"));
     }
 
     // Rename App.css to App.scss
     if (await fs.pathExists(appCssPath)) {
       await fs.rename(appCssPath, appScssPath);
-      console.log("Renamed App.css to App.scss");
+      console.log(chalk.cyan("Renamed App.css to App.scss"));
     }
   } catch (err) {
-    console.error(`Error renaming CSS files to SCSS: ${err}`);
+    console.error(chalk.red(`Error renaming CSS files to SCSS: ${err}`));
   }
 }
 
@@ -60,7 +61,7 @@ async function updateImportsToScss(targetDir) {
         `import './index.scss'`
       );
       await fs.writeFile(mainTsxPath, mainTsxContent);
-      console.log("Updated main.tsx to import index.scss");
+      console.log(chalk.cyan("Updated main.tsx to import index.scss"));
     }
 
     // Update App.tsx
@@ -71,9 +72,9 @@ async function updateImportsToScss(targetDir) {
         `import './App.scss'`
       );
       await fs.writeFile(appTsxPath, appTsxContent);
-      console.log("Updated App.tsx to import App.scss");
+      console.log(chalk.cyan("Updated App.tsx to import App.scss"));
     }
   } catch (err) {
-    console.error(`Error updating imports to .scss: ${err}`);
+    console.error(chalk.red(`Error updating imports to .scss: ${err}`));
   }
 }
