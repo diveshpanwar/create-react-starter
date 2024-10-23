@@ -60,50 +60,45 @@ program
       },
     ]);
 
-    const { useMUI } = await inquirer.prompt([
+    const { stylingLibraryAnswer } = await inquirer.prompt([
       {
-        type: "confirm",
-        name: "useMUI",
-        message: "Do you want to use React Material (mui)?",
-        default: true,
+        type: "list",
+        name: "stylingLibraryAnswer",
+        message: "Which styling library do you want to use?",
+        choices: ["MUI", "None"],
+        default: "MUI",
       },
     ]);
     let useMUIIconFlag = false;
-    if (useMUI) {
-      const { useMUIIcon } = await inquirer.prompt([
+    let useCustomThemeFlag = false;
+    if (stylingLibraryAnswer && stylingLibraryAnswer.toLowerCase() === "mui") {
+      const { useMUIIcon, useCustomTheme } = await inquirer.prompt([
         {
           type: "confirm",
           name: "useMUIIcon",
           message: "Do you want to use Material Icons?",
           default: true,
         },
-      ]);
-      useMUIIconFlag = useMUIIcon;
-    }
-
-    const { useStore } = await inquirer.prompt([
-      {
-        type: "confirm",
-        name: "useStore",
-        message: "Do you want to setup a store for your project?",
-        default: true,
-      },
-    ]);
-    let storeType = "zustand";
-    if (useStore) {
-      const { storeAnswer } = await inquirer.prompt([
         {
-          type: "list",
-          name: "storeAnswer",
-          message: "Which state management library do you want to use?",
-          choices: ["Redux", "Zustand", "None"],
-          default: "Zustand",
+          type: "confirm",
+          name: "useCustomTheme",
+          message: "Do you want to use customtTheme?",
+          default: true,
         },
       ]);
-
-      // Handle user choice for state management
-      storeType = storeAnswer.toLowerCase();
+      useMUIIconFlag = useMUIIcon;
+      useCustomThemeFlag = useCustomTheme;
     }
+
+    const { storeAnswer } = await inquirer.prompt([
+      {
+        type: "list",
+        name: "storeAnswer",
+        message: "Which state management library do you want to use?",
+        choices: ["Redux", "Zustand", "None"],
+        default: "Zustand",
+      },
+    ]);
 
     try {
       console.log(chalk.yellow(`Generating template ${targetPath}`));
@@ -118,21 +113,26 @@ program
         await updateImportsToScss(targetPath);
       }
 
-      if (useMUI) {
-        insertLine();
-        console.log(chalk.magenta(`Adding MUI to the project`, "\n"));
-        await addMuiToPackageJson(targetPath, useMUIIconFlag);
-      }
-
-      if (useStore && storeType === "zustand") {
+      if (storeAnswer.toLowerCase() === "zustand") {
         insertLine();
         console.log(chalk.magenta(`Adding Zustand to the project`, "\n"));
         await addZustandToProject(targetPath);
-      } else if (useStore && storeType === "redux") {
+      } else if (storeAnswer.toLowerCase() === "redux") {
         insertLine();
         console.log(chalk.magenta(`Adding Redux to the project`, "\n"));
         await addReduxToProject(targetPath);
       }
+
+      if (stylingLibraryAnswer.toLowerCase() === "mui") {
+        insertLine();
+        console.log(chalk.magenta(`Adding MUI to the project`, "\n"));
+        await addMuiToPackageJson(
+          targetPath,
+          useMUIIconFlag,
+          useCustomThemeFlag
+        );
+      }
+
       insertLine();
       console.log(chalk.green("Project setup is complete!", "\n"));
       console.log(

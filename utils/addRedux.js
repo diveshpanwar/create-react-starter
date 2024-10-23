@@ -11,11 +11,11 @@ const originalImports = `import { StrictMode } from 'react'`;
 
 const originalMainSnippet = `<App />`;
 
-const updatedImports = `import { StrictMode } from 'react';
-import { Provider } from 'react-redux';
-import { store } from './store/index.ts';`;
+const updatedImports = `import { StrictMode } from 'react'
+import { Provider } from 'react-redux'
+import { store } from './store/index.ts'`;
 
-const updatedMainSnippet = `<Provider store={store}>
+const updatedMainSnippet = `    <Provider store={store}>
       <App />
     </Provider>`;
 
@@ -32,7 +32,7 @@ export async function setupFilesForRedux(targetDir) {
     );
     const targetCounterStorePath = path.join(
       storeFolderPath,
-      "slices/counterStore.ts"
+      "slices/counterSlice.ts"
     );
     const sourceIndexStorePath = path.join(snippetsDir, "redux/reduxIndex.ts");
     const targetIndexStorePath = path.join(storeFolderPath, "index.ts");
@@ -66,7 +66,7 @@ export async function addReduxToProject(targetDir) {
     // Setup Redux files
     await setupFilesForRedux(targetDir);
     await updateMainfile(targetDir);
-    console.log(chalk.cyan("Added Redux to project."), "\n");
+    console.log(chalk.magenta("\nAdded Redux to project."), "\n");
     console.log(
       chalk.grey(
         `Example on using store is provided in ${chalk.yellow(

@@ -43,7 +43,7 @@ export async function addZustandToProject(targetDir) {
     await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
     // Setup Zustand files
     setupFilesForZustand(targetDir);
-    console.log(chalk.cyan("Added Zustand to project."), "\n");
+    console.log(chalk.magenta("\nAdded Zustand to project."), "\n");
     console.log(
       chalk.grey(
         `Example on using store is provided in ${chalk.yellow(
