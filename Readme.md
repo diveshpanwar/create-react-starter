@@ -1,10 +1,11 @@
-Here’s a more intuitive and organized version of your README for the React Starter project:
+# Create App Using React
 
----
+![Static Badge](https://img.shields.io/badge/PR-welcome-green?style=flat)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/diveshpanwar/create-react-starter)
+![GitHub contributors](https://img.shields.io/github/contributors/diveshpanwar/create-react-starter?color=orange)
+![NPM Downloads](https://img.shields.io/npm/dw/create-app-using-react)
 
-# React Starter
-
-**React Starter** is a command-line tool designed to quickly generate a new React project with TypeScript. This project is configured using Vite for a fast and optimized development experience.
+**Create App Using React** is a command-line tool designed to quickly generate a new React project with TypeScript. This project is configured using Vite for a fast and optimized development experience.
 
 ## Table of Contents
 
@@ -39,6 +40,8 @@ React Starter supports the following features:
 - **TypeScript**: Easily set up your project with TypeScript for type safety.
 - **SASS**: Add SASS support for advanced styling options.
 - **Material UI**: Integrate Material UI for a modern design system ([mui](https://mui.com/material-ui/)).
+  - Support for Adding Icons
+  - Support for Adding a Custom theme
 - **State Management**: Choose between state management solutions:
   - [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction)
   - [Redux](https://redux.js.org/introduction/getting-started)
