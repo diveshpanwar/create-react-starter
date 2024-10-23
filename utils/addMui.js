@@ -1,6 +1,7 @@
 import chalk from "chalk";
 import fs from "fs-extra";
 import path from "path";
+import { packageVersions } from "../config.js";
 
 export async function addMuiToPackageJson(targetDir, addIcons) {
   const packageJsonPath = path.join(targetDir, "package.json");
@@ -11,12 +12,16 @@ export async function addMuiToPackageJson(targetDir, addIcons) {
 
     // Add MUI dependencies
     packageJson.dependencies = packageJson.dependencies || {};
-    packageJson.dependencies["@mui/material"] = "^6.1.1";
-    packageJson.dependencies["@emotion/react"] = "^11.13.3";
-    packageJson.dependencies["@emotion/styled"] = "^11.13.0";
+    packageJson.dependencies["@mui/material"] =
+      packageVersions["@mui/material"];
+    packageJson.dependencies["@emotion/react"] =
+      packageVersions["@emotion/react"];
+    packageJson.dependencies["@emotion/styled"] =
+      packageVersions["@emotion/styled"];
 
     if (addIcons) {
-      packageJson.dependencies["@mui/icons-material"] = "^6.1.1";
+      packageJson.dependencies["@mui/icons-material"] =
+        packageVersions["@mui/icons-material"];
     }
 
     // Write the updated package.json back

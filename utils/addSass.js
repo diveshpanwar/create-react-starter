@@ -1,6 +1,7 @@
+import chalk from "chalk";
 import fs from "fs-extra";
 import path from "path";
-import chalk from "chalk";
+import { packageVersions } from "../config.js";
 
 // Function to update package.json with Sass
 export async function addSassToPackageJson(targetDir) {
@@ -12,7 +13,7 @@ export async function addSassToPackageJson(targetDir) {
 
     // Add Sass as a dependency with the latest compatible version
     packageJson.dependencies = packageJson.dependencies || {};
-    packageJson.dependencies["sass"] = "^1.77.8"; // Or use any desired version or latest
+    packageJson.dependencies["sass"] = packageVersions["sass"]; // Or use any desired version or latest
 
     // Write the updated package.json back
     await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });

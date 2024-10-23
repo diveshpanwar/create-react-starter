@@ -57,7 +57,7 @@ program
         default: true,
       },
     ]);
-
+    let useMUIIconFlag = false;
     if (useMUI) {
       const { useMUIIcon } = await inquirer.prompt([
         {
@@ -67,6 +67,7 @@ program
           default: true,
         },
       ]);
+      useMUIIconFlag = useMUIIcon;
     }
 
     try {
@@ -86,7 +87,7 @@ program
       if (useMUI) {
         insertLine();
         console.log(chalk.magenta(`Adding MUI to the project`, "\n"));
-        await addMuiToPackageJson(targetPath, useMUIIcon);
+        await addMuiToPackageJson(targetPath, useMUIIconFlag);
       }
       insertLine();
       console.log(chalk.green("Project setup is complete!", "\n"));
