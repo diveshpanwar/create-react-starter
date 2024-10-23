@@ -13,6 +13,7 @@
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/react-redux)
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/sass)
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/zustand)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/bootstrap)
 
 **Create App Using React** is a command-line tool designed to quickly generate a new React project with TypeScript. This project is configured using Vite for a fast and optimized development experience.
 
@@ -48,6 +49,9 @@ React Starter supports the following features:
 
 - **TypeScript**: Easily set up your project with TypeScript for type safety.
 - **SASS**: Add SASS support for advanced styling options.
+- **Styling Library**: Choose styling library
+  - Bootstrap
+  - MUI (Material UI)
 - **Material UI**: Integrate Material UI for a modern design system ([mui](https://mui.com/material-ui/)).
   - Support for Adding Icons
   - Support for Adding a Custom theme

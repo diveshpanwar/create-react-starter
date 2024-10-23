@@ -9,6 +9,7 @@ export async function addSassToPackageJson(targetDir) {
 
   try {
     // Read the existing package.json
+    console.log(chalk.cyan(`Updating ${chalk.yellow("package.json")}`));
     const packageJson = await fs.readJson(packageJsonPath);
 
     // Add Sass as a dependency with the latest compatible version
@@ -35,13 +36,23 @@ export async function renameCssToScss(targetDir) {
     // Rename index.css to index.scss
     if (await fs.pathExists(indexCssPath)) {
       await fs.rename(indexCssPath, indexScssPath);
-      console.log(chalk.cyan("Renamed index.css to index.scss"));
+      console.log(
+        chalk.cyan(
+          `Renamed ${chalk.yellow("index.css")} to ${chalk.yellow(
+            "index.scss"
+          )}`
+        )
+      );
     }
 
     // Rename App.css to App.scss
     if (await fs.pathExists(appCssPath)) {
       await fs.rename(appCssPath, appScssPath);
-      console.log(chalk.cyan("Renamed App.css to App.scss"));
+      console.log(
+        chalk.cyan(
+          `Renamed ${chalk.yellow("App.css")} to ${chalk.yellow("App.scss")}`
+        )
+      );
     }
   } catch (err) {
     console.error(chalk.red(`Error renaming CSS files to SCSS: ${err}`));
@@ -62,7 +73,13 @@ async function updateImportsToScss(targetDir) {
         `import './index.scss'`
       );
       await fs.writeFile(mainTsxPath, mainTsxContent);
-      console.log(chalk.cyan("Updated main.tsx to import index.scss"));
+      console.log(
+        chalk.cyan(
+          `Updated ${chalk.yellow("main.tsx")} to import ${chalk.yellow(
+            "index.scss"
+          )}`
+        )
+      );
     }
 
     // Update App.tsx
@@ -73,8 +90,16 @@ async function updateImportsToScss(targetDir) {
         `import './App.scss'`
       );
       await fs.writeFile(appTsxPath, appTsxContent);
-      console.log(chalk.cyan("Updated App.tsx to import App.scss"));
+      console.log(
+        chalk.cyan(
+          `Updated ${chalk.yellow("App.tsx")} to import ${chalk.yellow(
+            "App.scss"
+          )}`
+        )
+      );
     }
+
+    console.log(chalk.magenta("Added SASS to the project."));
   } catch (err) {
     console.error(chalk.red(`Error updating imports to .scss: ${err}`));
   }
