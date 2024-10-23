@@ -5,18 +5,15 @@ import { program } from "commander";
 import fs from "fs-extra";
 import inquirer from "inquirer";
 import path from "path";
-import { fileURLToPath } from "url";
+import { __dirname } from "./config.js";
 import { addMuiToPackageJson } from "./utils/addMui.js";
 import {
   addSassToPackageJson,
   renameCssToScss,
   updateImportsToScss,
 } from "./utils/addSass.js";
+import { addZustandToProject } from "./utils/addZustand.js";
 import { insertLine } from "./utils/common.js";
-
-// Resolve the equivalent of __dirname in ES module scope
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Path to the template directory
 const templateDir = path.join(__dirname, "template");
@@ -38,6 +35,19 @@ program
       ]);
 
       projectName = answers.projectName;
+    }
+
+    const targetPath = path.join(process.cwd(), projectName);
+
+    if (fs.existsSync(targetPath)) {
+      console.log(
+        chalk.red(
+          `Error: The folder '${chalk.yellow(
+            targetPath
+          )}' already exists. Please use a different name.`
+        )
+      );
+      process.exit(1); // Exit the process if the folder exists
     }
 
     const { useSass } = await inquirer.prompt([
@@ -70,8 +80,31 @@ program
       useMUIIconFlag = useMUIIcon;
     }
 
+    const { useStore } = await inquirer.prompt([
+      {
+        type: "confirm",
+        name: "useStore",
+        message: "Do you want to setup a store for your project?",
+        default: true,
+      },
+    ]);
+    let storeType = "zustand";
+    if (useStore) {
+      const { storeAnswer } = await inquirer.prompt([
+        {
+          type: "list",
+          name: "storeAnswer",
+          message: "Which state management library do you want to use?",
+          choices: ["Redux", "Zustand", "None"],
+          default: "Zustand",
+        },
+      ]);
+
+      // Handle user choice for state management
+      storeType = storeAnswer.toLowerCase();
+    }
+
     try {
-      const targetPath = path.join(process.cwd(), projectName);
       console.log(chalk.yellow(`Generating template ${targetPath}`));
       insertLine();
       await fs.copy(templateDir, targetPath);
@@ -88,6 +121,12 @@ program
         insertLine();
         console.log(chalk.magenta(`Adding MUI to the project`, "\n"));
         await addMuiToPackageJson(targetPath, useMUIIconFlag);
+      }
+
+      if (useStore && storeType === "zustand") {
+        insertLine();
+        console.log(chalk.magenta(`Adding Zustand to the project`, "\n"));
+        await addZustandToProject(targetPath);
       }
       insertLine();
       console.log(chalk.green("Project setup is complete!", "\n"));
