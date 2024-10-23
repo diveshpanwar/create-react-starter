@@ -16,13 +16,14 @@ import {
 } from "./utils/addSass.js";
 import { addZustandToProject } from "./utils/addZustand.js";
 import { insertLine } from "./utils/common.js";
+import { addFolderStructureToProject } from "./utils/addFolderStructure.js";
 
 // Path to the template directory
 const templateDir = path.join(__dirname, "template");
 
 program
-  .version("1.0.0")
-  .description("Create a new Vite + Material-UI React app")
+  .version("1.6.0")
+  .description("Create a new React app")
   .option("-n, --name <project-name>", "Name of the project")
   .action(async (options) => {
     let projectName = options.name;
@@ -70,6 +71,7 @@ program
         default: "MUI",
       },
     ]);
+
     let useMUIIconFlag = false;
     let useCustomThemeFlag = false;
     if (stylingLibraryAnswer && stylingLibraryAnswer.toLowerCase() === "mui") {
@@ -101,11 +103,24 @@ program
       },
     ]);
 
+    const { useFolderStructure } = await inquirer.prompt([
+      {
+        type: "confirm",
+        name: "useFolderStructure",
+        message:
+          "Do you want to add a folder Structure to your React Project (small to medium sized projects)?",
+        default: false,
+      },
+    ]);
+
     try {
+      // generate template
       console.log(chalk.yellow(`Generating template ${targetPath}`));
       insertLine();
       await fs.copy(templateDir, targetPath);
       console.log(chalk.green("Template generated successfully!"));
+
+      // add sass
       if (useSass) {
         insertLine();
         console.log(chalk.magenta(`Adding Sass to the project...`, "\n"));
@@ -114,6 +129,7 @@ program
         await updateImportsToScss(targetPath);
       }
 
+      // add store
       if (storeAnswer.toLowerCase() === "zustand") {
         insertLine();
         console.log(chalk.magenta(`Adding Zustand to the project...`, "\n"));
@@ -124,6 +140,7 @@ program
         await addReduxToProject(targetPath);
       }
 
+      // add style library
       if (stylingLibraryAnswer.toLowerCase() === "mui") {
         insertLine();
         console.log(chalk.magenta(`Adding MUI to the project...`, "\n"));
@@ -136,6 +153,15 @@ program
         insertLine();
         console.log(chalk.magenta(`Adding bootstrap to the project...`, "\n"));
         await addBootstrapToProject(targetPath);
+      }
+
+      // add folder structure
+      if (useFolderStructure) {
+        insertLine();
+        console.log(
+          chalk.magenta(`Adding folder structure to the project...`, "\n")
+        );
+        addFolderStructureToProject(targetPath);
       }
 
       insertLine();
