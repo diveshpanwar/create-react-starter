@@ -5,6 +5,15 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/diveshpanwar/create-react-starter?color=orange)
 ![NPM Downloads](https://img.shields.io/npm/dw/create-app-using-react)
 
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/%40emotion%2Freact)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/%40emotion%2Fstyled)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/%40mui%2Ficons-material)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/%40mui%2Fmaterial)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/%40reduxjs%2Ftoolkit)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/react-redux)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/sass)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/zustand)
+
 **Create App Using React** is a command-line tool designed to quickly generate a new React project with TypeScript. This project is configured using Vite for a fast and optimized development experience.
 
 ## Table of Contents
@@ -52,7 +61,7 @@ We welcome contributions! If you're interested in contributing to this project, 
 
 ## Issues
 
-If you encounter any issues or have feature requests, please file them at our [GitHub Issues page](https://github.com/diveshpanwar/next-resume-mui/issues).
+If you encounter any issues or have feature requests, please file them at our [GitHub Issues page](https://github.com/diveshpanwar/create-react-starter/issues).
 
 ---
 

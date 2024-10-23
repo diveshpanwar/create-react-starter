@@ -1,12 +1,13 @@
 {
   "name": "create-app-using-react",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "main": "index.js",
   "type": "module",
   "contributors": [
     {
       "name": "Divesh Panwar",
-      "email": "divesh.panwar@gmail.com"
+      "email": "divesh.panwar@gmail.com",
+      "url": "https://diveshpanwar.dev"
     }
   ],
   "scripts": {
@@ -22,7 +23,7 @@
   "repository": {
     "url": "https://github.com/diveshpanwar/create-react-starter"
   },
-  "author": "",
+  "author": "Divesh Panwar <divesh.panwar@gmail.com> (https://diveshpanwar.dev)",
   "license": "MIT",
   "description": "This project helps in generating a React project.",
   "dependencies": {
