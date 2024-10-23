@@ -17,3 +17,12 @@ export async function createFolder(folderPath) {
 export function copyFile(source, destination) {
   fs.copyFileSync(source, destination);
 }
+
+export const copyFolderStructure = (srcFolder, destFolder) => {
+  try {
+    fs.copySync(srcFolder, destFolder, { overwrite: true });
+    console.log(chalk.magenta(`\nFolder structure added.`));
+  } catch (err) {
+    console.error(`Error copying folder structure: ${err}`);
+  }
+};

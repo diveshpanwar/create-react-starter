@@ -58,6 +58,7 @@ React Starter supports the following features:
 - **State Management**: Choose between state management solutions:
   - [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction)
   - [Redux](https://redux.js.org/introduction/getting-started)
+- **Folder Structure**: Add a basic folder structure to your project
 
 ## Contributing
 
