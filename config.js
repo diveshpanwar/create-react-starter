@@ -8,6 +8,8 @@ export const packageVersions = {
   "@emotion/styled": "^11.13.0",
   "@mui/icons-material": "^6.1.1",
   zustand: "^5.0.0",
+  "@reduxjs/toolkit": "^2.3.0",
+  "react-redux": "^9.1.2",
 };
 
 export const __filename = fileURLToPath(import.meta.url);

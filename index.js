@@ -13,6 +13,7 @@ import {
   updateImportsToScss,
 } from "./utils/addSass.js";
 import { addZustandToProject } from "./utils/addZustand.js";
+import { addReduxToProject } from "./utils/addRedux.js";
 import { insertLine } from "./utils/common.js";
 
 // Path to the template directory
@@ -127,6 +128,10 @@ program
         insertLine();
         console.log(chalk.magenta(`Adding Zustand to the project`, "\n"));
         await addZustandToProject(targetPath);
+      } else if (useStore && storeType === "redux") {
+        insertLine();
+        console.log(chalk.magenta(`Adding Redux to the project`, "\n"));
+        await addReduxToProject(targetPath);
       }
       insertLine();
       console.log(chalk.green("Project setup is complete!", "\n"));
