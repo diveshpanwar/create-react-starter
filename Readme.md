@@ -13,7 +13,7 @@ This project supports following options:
 * Typescript
 * SASS
 * Material UI ([mui](https://mui.com/material-ui/))
-* Support for Store ([Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction))
+* Support for Store ([Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction), [Redux]('https://redux.js.org/introduction/getting-started'))
 
 ## Contributions
 
