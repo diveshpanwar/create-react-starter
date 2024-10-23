@@ -3,10 +3,7 @@
 ![Static Badge](https://img.shields.io/badge/PR-welcome-green?style=flat)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/diveshpanwar/create-react-starter)
 ![GitHub contributors](https://img.shields.io/github/contributors/diveshpanwar/create-react-starter?color=orange)
-![NPM Version (with dist tag)](https://img.shields.io/npm/v/react/latest?label=react)
-![NPM Version (with dist tag)](https://img.shields.io/npm/v/%40mui%2Fmaterial/latest?label=%40mui%2Fmaterial)
-![NPM Version (with dist tag)](https://img.shields.io/npm/v/zustand/latest?label=zustand)
-![NPM Version (with dist tag)](https://img.shields.io/npm/v/react-redux/latest?label=react-redux)
+![NPM Downloads](https://img.shields.io/npm/dw/create-app-using-react)
 
 **Create App Using React** is a command-line tool designed to quickly generate a new React project with TypeScript. This project is configured using Vite for a fast and optimized development experience.
 
