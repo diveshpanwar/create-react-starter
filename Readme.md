@@ -12,7 +12,8 @@ This project supports following options:
 
 * Typescript
 * SASS
-* Material UI (mui)
+* Material UI ([mui](https://mui.com/material-ui/))
+* Support for Store ([Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction))
 
 ## Contributions
 
