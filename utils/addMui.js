@@ -12,8 +12,8 @@ const originalImports = `import { StrictMode } from 'react'`;
 const originalMainSnippet = `<App />`;
 
 const updatedImports = `import { StrictMode } from 'react'
-import { ThemeProvider } from "@mui/material/styles"
-import { lightTheme } from "./theme.tsx"`;
+import { ThemeProvider } from '@mui/material/styles'
+import { lightTheme } from './theme.tsx'`;
 
 const updatedMainSnippet = `    <ThemeProvider theme={lightTheme}>
       <App />
@@ -40,6 +40,9 @@ export async function addMuiToPackageJson(targetDir, addIcons, useCustomTheme) {
 
   try {
     // Read the existing package.json
+    console.log(
+      chalk.cyan(`Updating ${chalk.yellow("package.json")}`)
+    );
     const packageJson = await fs.readJson(packageJsonPath);
 
     // Add MUI dependencies
@@ -64,8 +67,8 @@ export async function addMuiToPackageJson(targetDir, addIcons, useCustomTheme) {
       console.log(
         chalk.cyan(`Adding custom theme to ${chalk.yellow("main.tsx")}`)
       );
+      updateMainfile(targetDir);
     }
-    updateMainfile(targetDir);
 
     // Write the updated package.json back
     await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });

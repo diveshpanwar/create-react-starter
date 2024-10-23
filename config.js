@@ -10,6 +10,7 @@ export const packageVersions = {
   zustand: "^5.0.0",
   "@reduxjs/toolkit": "^2.3.0",
   "react-redux": "^9.1.2",
+  "bootstrap": "^5.3.3"
 };
 
 export const __filename = fileURLToPath(import.meta.url);

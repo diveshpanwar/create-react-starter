@@ -6,14 +6,15 @@ import fs from "fs-extra";
 import inquirer from "inquirer";
 import path from "path";
 import { __dirname } from "./config.js";
+import { addBootstrapToProject } from "./utils/addBootstrap.js";
 import { addMuiToPackageJson } from "./utils/addMui.js";
+import { addReduxToProject } from "./utils/addRedux.js";
 import {
   addSassToPackageJson,
   renameCssToScss,
   updateImportsToScss,
 } from "./utils/addSass.js";
 import { addZustandToProject } from "./utils/addZustand.js";
-import { addReduxToProject } from "./utils/addRedux.js";
 import { insertLine } from "./utils/common.js";
 
 // Path to the template directory
@@ -65,7 +66,7 @@ program
         type: "list",
         name: "stylingLibraryAnswer",
         message: "Which styling library do you want to use?",
-        choices: ["MUI", "None"],
+        choices: ["MUI", "Bootstrap", "None"],
         default: "MUI",
       },
     ]);
@@ -107,7 +108,7 @@ program
       console.log(chalk.green("Template generated successfully!"));
       if (useSass) {
         insertLine();
-        console.log(chalk.magenta(`Adding Sass to the project`, "\n"));
+        console.log(chalk.magenta(`Adding Sass to the project...`, "\n"));
         await addSassToPackageJson(targetPath);
         await renameCssToScss(targetPath);
         await updateImportsToScss(targetPath);
@@ -115,22 +116,26 @@ program
 
       if (storeAnswer.toLowerCase() === "zustand") {
         insertLine();
-        console.log(chalk.magenta(`Adding Zustand to the project`, "\n"));
+        console.log(chalk.magenta(`Adding Zustand to the project...`, "\n"));
         await addZustandToProject(targetPath);
       } else if (storeAnswer.toLowerCase() === "redux") {
         insertLine();
-        console.log(chalk.magenta(`Adding Redux to the project`, "\n"));
+        console.log(chalk.magenta(`Adding Redux to the project...`, "\n"));
         await addReduxToProject(targetPath);
       }
 
       if (stylingLibraryAnswer.toLowerCase() === "mui") {
         insertLine();
-        console.log(chalk.magenta(`Adding MUI to the project`, "\n"));
+        console.log(chalk.magenta(`Adding MUI to the project...`, "\n"));
         await addMuiToPackageJson(
           targetPath,
           useMUIIconFlag,
           useCustomThemeFlag
         );
+      } else if (stylingLibraryAnswer.toLowerCase() === "bootstrap") {
+        insertLine();
+        console.log(chalk.magenta(`Adding bootstrap to the project...`, "\n"));
+        await addBootstrapToProject(targetPath);
       }
 
       insertLine();
