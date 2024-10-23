@@ -17,12 +17,13 @@ import {
 import { addZustandToProject } from "./utils/addZustand.js";
 import { insertLine } from "./utils/common.js";
 import { addFolderStructureToProject } from "./utils/addFolderStructure.js";
+import { addRouterToProject } from "./utils/addRouter.js";
 
 // Path to the template directory
 const templateDir = path.join(__dirname, "template");
 
 program
-  .version("1.6.0")
+  .version("1.7.0")
   .description("Create a new React app")
   .option("-n, --name <project-name>", "Name of the project")
   .action(async (options) => {
@@ -103,6 +104,15 @@ program
       },
     ]);
 
+    const { useRouter } = await inquirer.prompt([
+      {
+        type: "confirm",
+        name: "useRouter",
+        message: "Do you want to add router to your project?",
+        default: false,
+      },
+    ]);
+
     const { useFolderStructure } = await inquirer.prompt([
       {
         type: "confirm",
@@ -153,6 +163,14 @@ program
         insertLine();
         console.log(chalk.magenta(`Adding bootstrap to the project...`, "\n"));
         await addBootstrapToProject(targetPath);
+      }
+
+      // add Router to the project
+      if (useRouter) {
+        insertLine();
+        console.log(chalk.magenta(`Adding Router to the project...`, "\n"));
+        // add router
+        await addRouterToProject(targetPath);
       }
 
       // add folder structure

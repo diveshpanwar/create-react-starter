@@ -14,6 +14,8 @@
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/sass)
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/zustand)
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/bootstrap)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/react-router)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/react-router-dom)
 
 **Create App Using React** is a command-line tool designed to quickly generate a new React project with TypeScript. This project is configured using Vite for a fast and optimized development experience.
 
@@ -58,6 +60,7 @@ React Starter supports the following features:
 - **State Management**: Choose between state management solutions:
   - [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction)
   - [Redux](https://redux.js.org/introduction/getting-started)
+- **React Router**: Ability to add a react router to your project
 - **Folder Structure**: Add a basic folder structure to your project
 
 ## Contributing

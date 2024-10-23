@@ -1,8 +1,7 @@
-import chalk from "chalk";
 import fs from "fs-extra";
 import path from "path";
-import { __dirname, packageVersions } from "../config.js";
-import { copyFile, copyFolderStructure } from "./common.js";
+import { __dirname } from "../config.js";
+import { copyFolderStructure } from "./common.js";
 
 // Path to the template directory
 
