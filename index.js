@@ -18,12 +18,13 @@ import { addZustandToProject } from "./utils/addZustand.js";
 import { insertLine } from "./utils/common.js";
 import { addFolderStructureToProject } from "./utils/addFolderStructure.js";
 import { addRouterToProject } from "./utils/addRouter.js";
+import { addPrettierToProject } from "./utils/addPrettier.js";
 
 // Path to the template directory
 const templateDir = path.join(__dirname, "template");
 
 program
-  .version("1.7.0")
+  .version("1.8.0")
   .description("Create a new React app")
   .option("-n, --name <project-name>", "Name of the project")
   .action(async (options) => {
@@ -59,6 +60,15 @@ program
         type: "confirm",
         name: "useSass",
         message: "Do you want to use Sass (with .scss files)?",
+        default: true,
+      },
+    ]);
+
+    const { usePrettier } = await inquirer.prompt([
+      {
+        type: "confirm",
+        name: "usePrettier",
+        message: "Do you want to use prettier?",
         default: true,
       },
     ]);
@@ -173,13 +183,21 @@ program
         await addRouterToProject(targetPath);
       }
 
+      if (usePrettier) {
+        insertLine();
+        console.log(
+          chalk.magenta(`Configuring Prettier for the project...`, "\n")
+        );
+        await addPrettierToProject(targetPath);
+      }
+
       // add folder structure
       if (useFolderStructure) {
         insertLine();
         console.log(
           chalk.magenta(`Adding folder structure to the project...`, "\n")
         );
-        addFolderStructureToProject(targetPath);
+        await addFolderStructureToProject(targetPath);
       }
 
       insertLine();
