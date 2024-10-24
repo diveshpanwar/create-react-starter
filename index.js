@@ -19,12 +19,13 @@ import { insertLine } from "./utils/common.js";
 import { addFolderStructureToProject } from "./utils/addFolderStructure.js";
 import { addRouterToProject } from "./utils/addRouter.js";
 import { addPrettierToProject } from "./utils/addPrettier.js";
+import { addTailwindToProject } from "./utils/addTailwind.js";
 
 // Path to the template directory
 const templateDir = path.join(__dirname, "template");
 
 program
-  .version("1.8.2")
+  .version("1.9.0")
   .description("Create a new React app")
   .option("-n, --name <project-name>", "Name of the project")
   .action(async (options) => {
@@ -78,7 +79,7 @@ program
         type: "list",
         name: "stylingLibraryAnswer",
         message: "Which styling library do you want to use?",
-        choices: ["MUI", "Bootstrap", "None"],
+        choices: ["MUI", "Bootstrap", "TailwindCSS", "None"],
         default: "MUI",
       },
     ]);
@@ -140,30 +141,21 @@ program
       await fs.copy(templateDir, targetPath);
       console.log(chalk.green("Template generated successfully!"));
 
-      // add sass
-      if (useSass) {
-        insertLine();
-        console.log(chalk.magenta(`Adding Sass to the project...`, "\n"));
-        await addSassToPackageJson(targetPath);
-        await renameCssToScss(targetPath);
-        await updateImportsToScss(targetPath);
-      }
-
       // add store
       if (storeAnswer.toLowerCase() === "zustand") {
         insertLine();
-        console.log(chalk.magenta(`Adding Zustand to the project...`, "\n"));
+        console.log(chalk.magenta(`Adding Zustand to the project...`));
         await addZustandToProject(targetPath);
       } else if (storeAnswer.toLowerCase() === "redux") {
         insertLine();
-        console.log(chalk.magenta(`Adding Redux to the project...`, "\n"));
+        console.log(chalk.magenta(`Adding Redux to the project...`));
         await addReduxToProject(targetPath);
       }
 
       // add style library
       if (stylingLibraryAnswer.toLowerCase() === "mui") {
         insertLine();
-        console.log(chalk.magenta(`Adding MUI to the project...`, "\n"));
+        console.log(chalk.magenta(`Adding MUI to the project...`));
         await addMuiToPackageJson(
           targetPath,
           useMUIIconFlag,
@@ -171,37 +163,46 @@ program
         );
       } else if (stylingLibraryAnswer.toLowerCase() === "bootstrap") {
         insertLine();
-        console.log(chalk.magenta(`Adding bootstrap to the project...`, "\n"));
+        console.log(chalk.magenta(`Adding bootstrap to the project...`));
         await addBootstrapToProject(targetPath);
+      } else if (stylingLibraryAnswer.toLowerCase() === "tailwindcss") {
+        insertLine();
+        console.log(chalk.magenta(`Adding Tailwind CSS to the project...`));
+        await addTailwindToProject(targetPath);
+      }
+
+      // add sass
+      if (useSass) {
+        insertLine();
+        console.log(chalk.magenta(`Adding Sass to the project...`));
+        await addSassToPackageJson(targetPath);
+        await renameCssToScss(targetPath);
+        await updateImportsToScss(targetPath);
       }
 
       // add Router to the project
       if (useRouter) {
         insertLine();
-        console.log(chalk.magenta(`Adding Router to the project...`, "\n"));
+        console.log(chalk.magenta(`Adding Router to the project...`));
         // add router
         await addRouterToProject(targetPath);
       }
 
       if (usePrettier) {
         insertLine();
-        console.log(
-          chalk.magenta(`Configuring Prettier for the project...`, "\n"),
-        );
+        console.log(chalk.magenta(`Configuring Prettier for the project...`));
         await addPrettierToProject(targetPath);
       }
 
       // add folder structure
       if (useFolderStructure) {
         insertLine();
-        console.log(
-          chalk.magenta(`Adding folder structure to the project...`, "\n"),
-        );
+        console.log(chalk.magenta(`Adding folder structure to the project...`));
         await addFolderStructureToProject(targetPath);
       }
 
       insertLine();
-      console.log(chalk.green("Project setup is complete!", "\n"));
+      console.log(chalk.green("Project setup is complete!"));
       console.log(
         chalk.cyan(`Please run command:`),
         chalk.yellow(`'cd ${projectName} && npm install && npm run dev'`),

@@ -53,7 +53,7 @@ export async function updateMainfile(targetDir) {
 }
 
 export async function addReduxToProject(targetDir) {
-  console.log(chalk.yellow("Setting up Redux..."), "\n");
+  console.log(chalk.yellow("Setting up Redux..."));
   const packageJsonPath = path.join(targetDir, "package.json");
   try {
     const packageJson = await fs.readJson(packageJsonPath);
@@ -66,13 +66,12 @@ export async function addReduxToProject(targetDir) {
     // Setup Redux files
     await setupFilesForRedux(targetDir);
     await updateMainfile(targetDir);
-    console.log(chalk.magenta("\nAdded Redux to project."), "\n");
+    console.log(chalk.magenta("\nAdded Redux to project."));
     console.log(
       chalk.grey(
         `Example on using store is provided in ${chalk.yellow(
           "src/store/index.ts",
         )}`,
-        "\n",
       ),
     );
     console.log(
@@ -80,7 +79,6 @@ export async function addReduxToProject(targetDir) {
         `You can also refer to the documentation: ${chalk.yellow(
           "https://redux.js.org/tutorials/quick-start",
         )}`,
-        "\n",
       ),
     );
   } catch (err) {

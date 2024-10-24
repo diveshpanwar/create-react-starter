@@ -21,7 +21,7 @@ export async function updateMainfile(targetDir) {
 }
 
 export async function setupFilesForRouter(targetDir) {
-  console.log(chalk.cyan("Adding Router files"), "\n");
+  console.log(chalk.cyan("Adding Router files"));
   const srcFolderPath = path.join(__dirname, "snippets", "react-router");
   const destFolderPath = path.join(targetDir, "src");
 
@@ -35,7 +35,7 @@ export async function setupFilesForRouter(targetDir) {
 }
 
 export async function addRouterToProject(targetDir) {
-  console.log(chalk.yellow("Setting up App Router..."), "\n");
+  console.log(chalk.yellow("Setting up App Router..."));
   const packageJsonPath = path.join(targetDir, "package.json");
   try {
     const packageJson = await fs.readJson(packageJsonPath);
@@ -48,13 +48,12 @@ export async function addRouterToProject(targetDir) {
     // Setup Router files
     await setupFilesForRouter(targetDir);
     await updateMainfile(targetDir);
-    console.log(chalk.magenta("\nAdded Router to project."), "\n");
+    console.log(chalk.magenta("\nAdded Router to project."));
     console.log(
       chalk.grey(
         `You can also refer to the documentation: ${chalk.yellow(
           "https://reactrouter.com/en/main/start/tutorial",
         )}`,
-        "\n",
       ),
     );
   } catch (err) {
