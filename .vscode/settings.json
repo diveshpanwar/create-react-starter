@@ -1,25 +1,27 @@
 {
-    "prettier.experimentalTernaries": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode", // Ensure Prettier is set as the default formatter
-    "editor.formatOnSave": true, // Enable format on save
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode" // Set Prettier for JavaScript files
-    },
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode" // Set Prettier for React files
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode" // Set Prettier for TypeScript files
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode" // Set Prettier for TypeScript React files
-    },
-    "eslint.alwaysShowRuleFailuresAsWarnings": false,
-    "eslint.format.enable": false, // Disable ESLint's formatting capabilities
-    "prettier.singleQuote": true,
-    "javascript.preferences.quoteStyle": "single",
-    "typescript.preferences.quoteStyle": "single",
-    "yaml.format.singleQuote": true,
-    "prettier.quoteProps": "consistent",
-    "prettier.jsxSingleQuote": true
+  "prettier.experimentalTernaries": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Ensure Prettier is set as the default formatter
+  "editor.formatOnSave": true, // Enable format on save
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Set Prettier for JavaScript files
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Set Prettier for React files
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Set Prettier for TypeScript files
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Set Prettier for TypeScript React files
+  },
+  "eslint.alwaysShowRuleFailuresAsWarnings": false,
+  "eslint.format.enable": false, // Disable ESLint's formatting capabilities
+  "prettier.singleQuote": true,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "yaml.format.singleQuote": true,
+  "prettier.quoteProps": "consistent",
+  "prettier.jsxSingleQuote": true,
+  "editor.indentSize": "tabSize",
+  "editor.detectIndentation": false,
 }

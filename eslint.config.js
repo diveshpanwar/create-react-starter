@@ -3,22 +3,22 @@ import pluginJs from "@eslint/js";
 import prettier from "eslint-config-prettier";
 
 export default [
-    {
-        languageOptions: { globals: { ...globals.browser, ...globals.node } },
-        rules: {
-            "no-unused-vars": "warn",
-            "no-undef": "warn",
-            quotes: ["error", "double"],
-        },
-        ignores: [
-            "node_modules/*",
-            ".github/*",
-            ".vscode/*",
-            "snippets/*",
-            "template/*",
-            "folderStructure/*",
-        ],
+  {
+    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+    rules: {
+      "no-unused-vars": "warn",
+      "no-undef": "warn",
+      quotes: ["error", "double"],
     },
-    pluginJs.configs.recommended,
-    prettier,
+    ignores: [
+      "node_modules/*",
+      ".github/*",
+      ".vscode/*",
+      "snippets/*",
+      "template/*",
+      "folderStructure/*",
+    ],
+  },
+  pluginJs.configs.recommended,
+  prettier,
 ];

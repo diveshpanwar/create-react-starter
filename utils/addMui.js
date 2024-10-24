@@ -20,68 +20,66 @@ const updatedMainSnippet = `    <ThemeProvider theme={lightTheme}>
     </ThemeProvider>`;
 
 export async function addCustomMuiThemeToProject(targetDir) {
-    const themeFolderPath = path.join(targetDir, "src");
-    const sourceThemePath = path.join(snippetsDir, "mui/theme.tsx");
-    const targetThemePath = path.join(themeFolderPath, "theme.tsx");
-    copyFile(sourceThemePath, targetThemePath);
+  const themeFolderPath = path.join(targetDir, "src");
+  const sourceThemePath = path.join(snippetsDir, "mui/theme.tsx");
+  const targetThemePath = path.join(themeFolderPath, "theme.tsx");
+  copyFile(sourceThemePath, targetThemePath);
 }
 
 export async function updateMainfile(targetDir) {
-    const mainFilePath = path.join(targetDir, "src/main.tsx");
-    const content = await fs.readFile(mainFilePath, "utf8");
-    const updatedContent = content
-        .replace(originalImports, updatedImports)
-        .replace(originalMainSnippet, updatedMainSnippet);
-    await fs.writeFile(mainFilePath, updatedContent);
+  const mainFilePath = path.join(targetDir, "src/main.tsx");
+  const content = await fs.readFile(mainFilePath, "utf8");
+  const updatedContent = content
+    .replace(originalImports, updatedImports)
+    .replace(originalMainSnippet, updatedMainSnippet);
+  await fs.writeFile(mainFilePath, updatedContent);
 }
 
 export async function addMuiToPackageJson(targetDir, addIcons, useCustomTheme) {
-    const packageJsonPath = path.join(targetDir, "package.json");
+  const packageJsonPath = path.join(targetDir, "package.json");
 
-    try {
-        // Read the existing package.json
-        console.log(chalk.cyan(`Updating ${chalk.yellow("package.json")}`));
-        const packageJson = await fs.readJson(packageJsonPath);
+  try {
+    // Read the existing package.json
+    console.log(chalk.cyan(`Updating ${chalk.yellow("package.json")}`));
+    const packageJson = await fs.readJson(packageJsonPath);
 
-        // Add MUI dependencies
-        packageJson.dependencies = packageJson.dependencies || {};
-        packageJson.dependencies["@mui/material"] =
-            packageVersions["@mui/material"];
-        packageJson.dependencies["@emotion/react"] =
-            packageVersions["@emotion/react"];
-        packageJson.dependencies["@emotion/styled"] =
-            packageVersions["@emotion/styled"];
+    // Add MUI dependencies
+    packageJson.dependencies = packageJson.dependencies || {};
+    packageJson.dependencies["@mui/material"] =
+      packageVersions["@mui/material"];
+    packageJson.dependencies["@emotion/react"] =
+      packageVersions["@emotion/react"];
+    packageJson.dependencies["@emotion/styled"] =
+      packageVersions["@emotion/styled"];
 
-        if (addIcons) {
-            packageJson.dependencies["@mui/icons-material"] =
-                packageVersions["@mui/icons-material"];
-        }
-
-        if (useCustomTheme) {
-            console.log(
-                chalk.cyan(
-                    `Generating custom theme file in ${chalk.yellow("src/")}`
-                )
-            );
-            await addCustomMuiThemeToProject(targetDir);
-            console.log(
-                chalk.cyan(`Adding custom theme to ${chalk.yellow("main.tsx")}`)
-            );
-            await updateMainfile(targetDir);
-        }
-
-        // Write the updated package.json back
-        await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
-        console.log(chalk.magenta("\nAdded Material UI to project."), "\n");
-        console.log(
-            chalk.grey(
-                `You can also refer to the documentation: ${chalk.yellow(
-                    "https://mui.com/material-ui/getting-started/usage/"
-                )}`,
-                "\n"
-            )
-        );
-    } catch (err) {
-        console.error(chalk.red(`Error updating package.json: ${err}`));
+    if (addIcons) {
+      packageJson.dependencies["@mui/icons-material"] =
+        packageVersions["@mui/icons-material"];
     }
+
+    if (useCustomTheme) {
+      console.log(
+        chalk.cyan(`Generating custom theme file in ${chalk.yellow("src/")}`)
+      );
+      await addCustomMuiThemeToProject(targetDir);
+      console.log(
+        chalk.cyan(`Adding custom theme to ${chalk.yellow("main.tsx")}`)
+      );
+      await updateMainfile(targetDir);
+    }
+
+    // Write the updated package.json back
+    await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
+    console.log(chalk.magenta("\nAdded Material UI to project."), "\n");
+    console.log(
+      chalk.grey(
+        `You can also refer to the documentation: ${chalk.yellow(
+          "https://mui.com/material-ui/getting-started/usage/"
+        )}`,
+        "\n"
+      )
+    );
+  } catch (err) {
+    console.error(chalk.red(`Error updating package.json: ${err}`));
+  }
 }
