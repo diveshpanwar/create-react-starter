@@ -28,11 +28,11 @@ export async function setupFilesForRedux(targetDir) {
     // setup file counterStore.ts
     const sourceCounterStorePath = path.join(
       snippetsDir,
-      "redux/reduxCounterSlice.ts"
+      "redux/reduxCounterSlice.ts",
     );
     const targetCounterStorePath = path.join(
       storeFolderPath,
-      "slices/counterSlice.ts"
+      "slices/counterSlice.ts",
     );
     const sourceIndexStorePath = path.join(snippetsDir, "redux/reduxIndex.ts");
     const targetIndexStorePath = path.join(storeFolderPath, "index.ts");
@@ -70,18 +70,18 @@ export async function addReduxToProject(targetDir) {
     console.log(
       chalk.grey(
         `Example on using store is provided in ${chalk.yellow(
-          "src/store/index.ts"
+          "src/store/index.ts",
         )}`,
-        "\n"
-      )
+        "\n",
+      ),
     );
     console.log(
       chalk.grey(
         `You can also refer to the documentation: ${chalk.yellow(
-          "https://redux.js.org/tutorials/quick-start"
+          "https://redux.js.org/tutorials/quick-start",
         )}`,
-        "\n"
-      )
+        "\n",
+      ),
     );
   } catch (err) {
     console.error(chalk.red(`Error updating package.json: ${err}`));

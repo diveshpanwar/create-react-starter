@@ -15,7 +15,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky",
     "lint": "eslint . --config eslint.config.js --format @microsoft/eslint-formatter-sarif --output-file eslint-results.sarif",
-    "prettier": "npm run lint && prettier --write . --config prettier.config.js"
+    "prettier": "npm run lint && prettier --write ."
   },
   "lint-staged": {
     "**/*": "npm run prettier"

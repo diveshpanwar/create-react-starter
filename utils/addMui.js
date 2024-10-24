@@ -59,11 +59,11 @@ export async function addMuiToPackageJson(targetDir, addIcons, useCustomTheme) {
 
     if (useCustomTheme) {
       console.log(
-        chalk.cyan(`Generating custom theme file in ${chalk.yellow("src/")}`)
+        chalk.cyan(`Generating custom theme file in ${chalk.yellow("src/")}`),
       );
       await addCustomMuiThemeToProject(targetDir);
       console.log(
-        chalk.cyan(`Adding custom theme to ${chalk.yellow("main.tsx")}`)
+        chalk.cyan(`Adding custom theme to ${chalk.yellow("main.tsx")}`),
       );
       await updateMainfile(targetDir);
     }
@@ -74,10 +74,10 @@ export async function addMuiToPackageJson(targetDir, addIcons, useCustomTheme) {
     console.log(
       chalk.grey(
         `You can also refer to the documentation: ${chalk.yellow(
-          "https://mui.com/material-ui/getting-started/usage/"
+          "https://mui.com/material-ui/getting-started/usage/",
         )}`,
-        "\n"
-      )
+        "\n",
+      ),
     );
   } catch (err) {
     console.error(chalk.red(`Error updating package.json: ${err}`));

@@ -14,15 +14,15 @@ export async function setupFilesForZustand(targetDir) {
     // setup file counterStore.ts
     const sourceCounterStorePath = path.join(
       snippetsDir,
-      "zustand/zustandCounterStore.ts"
+      "zustand/zustandCounterStore.ts",
     );
     const targetCounterStorePath = path.join(
       storeFolderPath,
-      "counterStore.ts"
+      "counterStore.ts",
     );
     const sourceIndexStorePath = path.join(
       snippetsDir,
-      "zustand/zustandIndex.ts"
+      "zustand/zustandIndex.ts",
     );
     const targetIndexStorePath = path.join(storeFolderPath, "index.ts");
     copyFile(sourceCounterStorePath, targetCounterStorePath);
@@ -47,18 +47,18 @@ export async function addZustandToProject(targetDir) {
     console.log(
       chalk.grey(
         `Example on using store is provided in ${chalk.yellow(
-          "src/store/index.ts"
+          "src/store/index.ts",
         )}`,
-        "\n"
-      )
+        "\n",
+      ),
     );
     console.log(
       chalk.grey(
         `You can also refer to the documentation: ${chalk.yellow(
-          "https://zustand.docs.pmnd.rs/getting-started/introduction"
+          "https://zustand.docs.pmnd.rs/getting-started/introduction",
         )}`,
-        "\n"
-      )
+        "\n",
+      ),
     );
   } catch (err) {
     console.error(chalk.red(`Error updating package.json: ${err}`));

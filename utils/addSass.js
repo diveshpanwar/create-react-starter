@@ -39,9 +39,9 @@ export async function renameCssToScss(targetDir) {
       console.log(
         chalk.cyan(
           `Renamed ${chalk.yellow("index.css")} to ${chalk.yellow(
-            "index.scss"
-          )}`
-        )
+            "index.scss",
+          )}`,
+        ),
       );
     }
 
@@ -50,8 +50,8 @@ export async function renameCssToScss(targetDir) {
       await fs.rename(appCssPath, appScssPath);
       console.log(
         chalk.cyan(
-          `Renamed ${chalk.yellow("App.css")} to ${chalk.yellow("App.scss")}`
-        )
+          `Renamed ${chalk.yellow("App.css")} to ${chalk.yellow("App.scss")}`,
+        ),
       );
     }
   } catch (err) {
@@ -70,15 +70,15 @@ async function updateImportsToScss(targetDir) {
       let mainTsxContent = await fs.readFile(mainTsxPath, "utf8");
       mainTsxContent = mainTsxContent.replace(
         `import './index.css'`,
-        `import './index.scss'`
+        `import './index.scss'`,
       );
       await fs.writeFile(mainTsxPath, mainTsxContent);
       console.log(
         chalk.cyan(
           `Updated ${chalk.yellow("main.tsx")} to import ${chalk.yellow(
-            "index.scss"
-          )}`
-        )
+            "index.scss",
+          )}`,
+        ),
       );
     }
 
@@ -87,15 +87,15 @@ async function updateImportsToScss(targetDir) {
       let appTsxContent = await fs.readFile(appTsxPath, "utf8");
       appTsxContent = appTsxContent.replace(
         `import './App.css'`,
-        `import './App.scss'`
+        `import './App.scss'`,
       );
       await fs.writeFile(appTsxPath, appTsxContent);
       console.log(
         chalk.cyan(
           `Updated ${chalk.yellow("App.tsx")} to import ${chalk.yellow(
-            "App.scss"
-          )}`
-        )
+            "App.scss",
+          )}`,
+        ),
       );
     }
 

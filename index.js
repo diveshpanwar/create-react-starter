@@ -48,9 +48,9 @@ program
       console.log(
         chalk.red(
           `Error: The folder '${chalk.yellow(
-            targetPath
-          )}' already exists. Please use a different name.`
-        )
+            targetPath,
+          )}' already exists. Please use a different name.`,
+        ),
       );
       process.exit(1); // Exit the process if the folder exists
     }
@@ -167,7 +167,7 @@ program
         await addMuiToPackageJson(
           targetPath,
           useMUIIconFlag,
-          useCustomThemeFlag
+          useCustomThemeFlag,
         );
       } else if (stylingLibraryAnswer.toLowerCase() === "bootstrap") {
         insertLine();
@@ -186,7 +186,7 @@ program
       if (usePrettier) {
         insertLine();
         console.log(
-          chalk.magenta(`Configuring Prettier for the project...`, "\n")
+          chalk.magenta(`Configuring Prettier for the project...`, "\n"),
         );
         await addPrettierToProject(targetPath);
       }
@@ -195,7 +195,7 @@ program
       if (useFolderStructure) {
         insertLine();
         console.log(
-          chalk.magenta(`Adding folder structure to the project...`, "\n")
+          chalk.magenta(`Adding folder structure to the project...`, "\n"),
         );
         await addFolderStructureToProject(targetPath);
       }
@@ -204,7 +204,7 @@ program
       console.log(chalk.green("Project setup is complete!", "\n"));
       console.log(
         chalk.cyan(`Please run command:`),
-        chalk.yellow(`'cd ${projectName} && npm install && npm run dev'`)
+        chalk.yellow(`'cd ${projectName} && npm install && npm run dev'`),
       );
     } catch (error) {
       console.error(chalk.red("Failed to create the project:"), error);

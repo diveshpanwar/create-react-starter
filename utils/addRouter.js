@@ -52,10 +52,10 @@ export async function addRouterToProject(targetDir) {
     console.log(
       chalk.grey(
         `You can also refer to the documentation: ${chalk.yellow(
-          "https://reactrouter.com/en/main/start/tutorial"
+          "https://reactrouter.com/en/main/start/tutorial",
         )}`,
-        "\n"
-      )
+        "\n",
+      ),
     );
   } catch (err) {
     console.error(chalk.red(`Error updating package.json: ${err}`));
