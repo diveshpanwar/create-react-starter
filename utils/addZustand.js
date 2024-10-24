@@ -33,7 +33,7 @@ export async function setupFilesForZustand(targetDir) {
 }
 
 export async function addZustandToProject(targetDir) {
-  console.log(chalk.yellow("Setting up Zustand..."), "\n");
+  console.log(chalk.yellow("Setting up Zustand..."));
   const packageJsonPath = path.join(targetDir, "package.json");
   try {
     const packageJson = await fs.readJson(packageJsonPath);
@@ -43,13 +43,12 @@ export async function addZustandToProject(targetDir) {
     await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
     // Setup Zustand files
     setupFilesForZustand(targetDir);
-    console.log(chalk.magenta("\nAdded Zustand to project."), "\n");
+    console.log(chalk.magenta("\nAdded Zustand to project."));
     console.log(
       chalk.grey(
         `Example on using store is provided in ${chalk.yellow(
           "src/store/index.ts",
         )}`,
-        "\n",
       ),
     );
     console.log(
@@ -57,7 +56,6 @@ export async function addZustandToProject(targetDir) {
         `You can also refer to the documentation: ${chalk.yellow(
           "https://zustand.docs.pmnd.rs/getting-started/introduction",
         )}`,
-        "\n",
       ),
     );
   } catch (err) {

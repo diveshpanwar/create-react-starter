@@ -70,13 +70,12 @@ export async function addMuiToPackageJson(targetDir, addIcons, useCustomTheme) {
 
     // Write the updated package.json back
     await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
-    console.log(chalk.magenta("\nAdded Material UI to project."), "\n");
+    console.log(chalk.magenta("\nAdded Material UI to project."));
     console.log(
       chalk.grey(
         `You can also refer to the documentation: ${chalk.yellow(
           "https://mui.com/material-ui/getting-started/usage/",
         )}`,
-        "\n",
       ),
     );
   } catch (err) {

@@ -39,6 +39,16 @@
         },
         {
           "location": {
+            "uri": "file:///H:/npm_starters/react-starter/snippets/tailwind/config/postcss.config.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/snippets/tailwind/config/tailwind.config.js"
+          }
+        },
+        {
+          "location": {
             "uri": "file:///H:/npm_starters/react-starter/template/eslint.config.js"
           }
         },
@@ -75,6 +85,11 @@
         {
           "location": {
             "uri": "file:///H:/npm_starters/react-starter/utils/addSass.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/utils/addTailwind.js"
           }
         },
         {

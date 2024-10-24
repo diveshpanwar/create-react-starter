@@ -17,6 +17,9 @@ export const packageVersions = {
   "eslint-config-prettier": "^9.1.0",
   "eslint-plugin-prettier": "^5.2.1",
   prettier: "^3.3.3",
+  postcss: "^8.4.47",
+  tailwindcss: "^3.4.14",
+  autoprefixer: "^10.4.20",
 };
 
 export const __filename = fileURLToPath(import.meta.url);

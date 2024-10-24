@@ -20,6 +20,7 @@
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/eslint)
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/eslint-config-prettier)
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/eslint-plugin-prettier)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/tailwindcss)
 
 **Create App Using React** is a command-line tool designed to quickly generate a new React project with TypeScript. This project is configured using Vite for a fast and optimized development experience.
 
@@ -56,8 +57,9 @@ React Starter supports the following features:
 - **TypeScript**: Easily set up your project with TypeScript for type safety.
 - **SASS**: Add SASS support for advanced styling options.
 - **Styling Library**: Choose styling library
-  - Bootstrap
-  - MUI (Material UI)
+  - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+  - [MUI (Material UI)](https://mui.com/material-ui/getting-started/)
+  - [TailwindCSS](https://tailwindcss.com/docs/utility-first)
 - **Material UI**: Integrate Material UI for a modern design system ([mui](https://mui.com/material-ui/)).
   - Support for Adding Icons
   - Support for Adding a Custom theme
