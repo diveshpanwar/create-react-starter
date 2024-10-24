@@ -1,0 +1,94 @@
+{
+  "version": "2.1.0",
+  "$schema": "http://json.schemastore.org/sarif-2.1.0-rtm.5",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ESLint",
+          "informationUri": "https://eslint.org",
+          "rules": [],
+          "version": "9.13.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/config.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/eslint.config.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/index.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/prettier.config.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/snippets/prettier/eslint.config.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/template/eslint.config.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/utils/addBootstrap.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/utils/addFolderStructure.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/utils/addMui.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/utils/addPrettier.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/utils/addRedux.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/utils/addRouter.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/utils/addSass.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/utils/addZustand.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///H:/npm_starters/react-starter/utils/common.js"
+          }
+        }
+      ],
+      "results": []
+    }
+  ]
+}
