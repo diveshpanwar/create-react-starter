@@ -1,62 +1,63 @@
 {
-    "name": "create-app-using-react",
-    "version": "1.8.1",
-    "main": "index.js",
-    "type": "module",
-    "contributors": [
-        {
-            "name": "Divesh Panwar",
-            "email": "divesh.panwar@gmail.com",
-            "url": "https://diveshpanwar.dev"
-        }
-    ],
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "prepare": "husky",
-        "lint": "eslint . --config eslint.config.js --format @microsoft/eslint-formatter-sarif --output-file eslint-results.sarif",
-        "prettier": "prettier --write ."
-    },
-    "lint-staged": {
-        "**/*": "prettier --write --ignore-unknown"
-    },
-    "bin": {
-        "create-app-using-react": "index.js"
-    },
-    "keywords": [
-        "React",
-        "Generate React Project"
-    ],
-    "repository": {
-        "url": "https://github.com/diveshpanwar/create-react-starter"
-    },
-    "author": "Divesh Panwar <divesh.panwar@gmail.com> (https://diveshpanwar.dev)",
-    "license": "MIT",
-    "description": "This project helps in generating a React project.",
-    "dependencies": {
-        "chalk": "^5.3.0",
-        "commander": "^12.1.0",
-        "fs-extra": "^11.2.0",
-        "inquirer": "^12.0.0"
-    },
-    "devDependencies": {
-        "@emotion/react": "^11.13.3",
-        "@emotion/styled": "^11.13.0",
-        "@eslint/js": "^9.13.0",
-        "@mui/icons-material": "^6.1.5",
-        "@mui/material": "^6.1.5",
-        "@reduxjs/toolkit": "^2.3.0",
-        "bootstrap": "^5.3.3",
-        "eslint": "^9.13.0",
-        "eslint-config-prettier": "9.1.0",
-        "eslint-plugin-prettier": "^5.2.1",
-        "globals": "^15.11.0",
-        "husky": "^9.1.6",
-        "lint-staged": "^15.2.10",
-        "prettier": "3.3.3",
-        "react-redux": "^9.1.2",
-        "react-router": "^6.27.0",
-        "react-router-dom": "^6.27.0",
-        "sass": "^1.80.3",
-        "zustand": "^5.0.0"
+  "name": "create-app-using-react",
+  "version": "1.8.2",
+  "main": "index.js",
+  "type": "module",
+  "contributors": [
+    {
+      "name": "Divesh Panwar",
+      "email": "divesh.panwar@gmail.com",
+      "url": "https://diveshpanwar.dev"
     }
+  ],
+  "homepage": "https://diveshpanwar.github.io/create-react-starter/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky",
+    "lint": "eslint . --config eslint.config.js --format @microsoft/eslint-formatter-sarif --output-file eslint-results.sarif",
+    "prettier": "npm run lint && prettier --write ."
+  },
+  "lint-staged": {
+    "**/*": "npm run prettier"
+  },
+  "bin": {
+    "create-app-using-react": "index.js"
+  },
+  "keywords": [
+    "React",
+    "Generate React Project"
+  ],
+  "repository": {
+    "url": "https://github.com/diveshpanwar/create-react-starter"
+  },
+  "author": "Divesh Panwar <divesh.panwar@gmail.com> (https://diveshpanwar.dev)",
+  "license": "MIT",
+  "description": "This project helps in generating a React project.",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^12.0.0"
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@eslint/js": "^9.13.0",
+    "@mui/icons-material": "^6.1.5",
+    "@mui/material": "^6.1.5",
+    "@reduxjs/toolkit": "^2.3.0",
+    "bootstrap": "^5.3.3",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.11.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "3.3.3",
+    "react-redux": "^9.1.2",
+    "react-router": "^6.27.0",
+    "react-router-dom": "^6.27.0",
+    "sass": "^1.80.3",
+    "zustand": "^5.0.0"
+  }
 }
