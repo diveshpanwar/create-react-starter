@@ -16,6 +16,10 @@
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/bootstrap)
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/react-router)
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/react-router-dom)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/prettier)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/eslint)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/eslint-config-prettier)
+![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/diveshpanwar/create-react-starter/dev/eslint-plugin-prettier)
 
 **Create App Using React** is a command-line tool designed to quickly generate a new React project with TypeScript. This project is configured using Vite for a fast and optimized development experience.
 
@@ -62,6 +66,7 @@ React Starter supports the following features:
   - [Redux](https://redux.js.org/introduction/getting-started)
 - **React Router**: Ability to add a react router to your project
 - **Folder Structure**: Add a basic folder structure to your project
+- **Prettier & ESlint**: Supports adding prettier and eslint
 
 ## Contributing
 

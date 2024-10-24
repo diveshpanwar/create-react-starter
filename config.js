@@ -13,6 +13,10 @@ export const packageVersions = {
   bootstrap: "^5.3.3",
   "react-router": "^6.27.0",
   "react-router-dom": "^6.27.0",
+  eslint: "^9.11.1",
+  "eslint-config-prettier": "^9.1.0",
+  "eslint-plugin-prettier": "^5.2.1",
+  prettier: "^3.3.3",
 };
 
 export const __filename = fileURLToPath(import.meta.url);

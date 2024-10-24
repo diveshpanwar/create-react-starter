@@ -40,9 +40,7 @@ export async function addMuiToPackageJson(targetDir, addIcons, useCustomTheme) {
 
   try {
     // Read the existing package.json
-    console.log(
-      chalk.cyan(`Updating ${chalk.yellow("package.json")}`)
-    );
+    console.log(chalk.cyan(`Updating ${chalk.yellow("package.json")}`));
     const packageJson = await fs.readJson(packageJsonPath);
 
     // Add MUI dependencies
@@ -63,11 +61,11 @@ export async function addMuiToPackageJson(targetDir, addIcons, useCustomTheme) {
       console.log(
         chalk.cyan(`Generating custom theme file in ${chalk.yellow("src/")}`)
       );
-      addCustomMuiThemeToProject(targetDir);
+      await addCustomMuiThemeToProject(targetDir);
       console.log(
         chalk.cyan(`Adding custom theme to ${chalk.yellow("main.tsx")}`)
       );
-      updateMainfile(targetDir);
+      await updateMainfile(targetDir);
     }
 
     // Write the updated package.json back
