@@ -25,17 +25,17 @@
 
 ## Table of Contents
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Supported Options](#supported-options)
-- [Contributing](#contributing)
-- [Issues](#issues)
+-   [Features](#features)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Supported Options](#supported-options)
+-   [Contributing](#contributing)
+-   [Issues](#issues)
 
 ## Features
 
-- 🚀 **Fast Setup**: Quickly scaffold a new React project.
-- 🔧 **Customizable**: Choose options that suit your project needs.
+-   🚀 **Fast Setup**: Quickly scaffold a new React project.
+-   🔧 **Customizable**: Choose options that suit your project needs.
 
 ## Installation
 
@@ -53,20 +53,20 @@ After running the command, follow the prompts to configure your project based on
 
 React Starter supports the following features:
 
-- **TypeScript**: Easily set up your project with TypeScript for type safety.
-- **SASS**: Add SASS support for advanced styling options.
-- **Styling Library**: Choose styling library
-  - Bootstrap
-  - MUI (Material UI)
-- **Material UI**: Integrate Material UI for a modern design system ([mui](https://mui.com/material-ui/)).
-  - Support for Adding Icons
-  - Support for Adding a Custom theme
-- **State Management**: Choose between state management solutions:
-  - [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction)
-  - [Redux](https://redux.js.org/introduction/getting-started)
-- **React Router**: Ability to add a react router to your project
-- **Folder Structure**: Add a basic folder structure to your project
-- **Prettier & ESlint**: Supports adding prettier and eslint
+-   **TypeScript**: Easily set up your project with TypeScript for type safety.
+-   **SASS**: Add SASS support for advanced styling options.
+-   **Styling Library**: Choose styling library
+    -   Bootstrap
+    -   MUI (Material UI)
+-   **Material UI**: Integrate Material UI for a modern design system ([mui](https://mui.com/material-ui/)).
+    -   Support for Adding Icons
+    -   Support for Adding a Custom theme
+-   **State Management**: Choose between state management solutions:
+    -   [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction)
+    -   [Redux](https://redux.js.org/introduction/getting-started)
+-   **React Router**: Ability to add a react router to your project
+-   **Folder Structure**: Add a basic folder structure to your project
+-   **Prettier & ESlint**: Supports adding prettier and eslint
 
 ## Contributing
 
