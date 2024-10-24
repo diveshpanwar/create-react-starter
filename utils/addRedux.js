@@ -39,7 +39,7 @@ export async function setupFilesForRedux(targetDir) {
     copyFile(sourceCounterStorePath, targetCounterStorePath);
     copyFile(sourceIndexStorePath, targetIndexStorePath);
   } catch (error) {
-    console.error(chalk.red(`Error setting up files for Zustand: ${err}`));
+    console.error(chalk.red(`Error setting up files for Zustand: ${error}`));
   }
 }
 
