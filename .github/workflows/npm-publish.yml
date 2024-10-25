@@ -1,6 +1,6 @@
 # This workflow will run as soon as changes are published to master
 
-name: Node.js Package
+name: Publish NPM Package
 
 on:
   push:
